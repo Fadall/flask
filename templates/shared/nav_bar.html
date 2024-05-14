@@ -1,0 +1,79 @@
+<script src="./../../static/js/script.js"></script>
+
+<nav class="border-gray-200 bg-gray-50 dark:bg-gray-800 dark:border-gray-700 flex justify-between items-center p-4 fixed top-0 left-0 w-full z-50" style="position: fixed; top: 0; left: 0; width: 100%; z-index: 1000;">
+  <div class="flex items-center gap-2">
+      <a href="index" class="flex items-center space-x-3 rtl:space-x-reverse">
+          <img width="70" src="https://www.lelexique.ch/wp-content/uploads/2014/08/la-carte-e1435496995517-300x300.png" alt="">
+          <span style="font-family:cursive; font-size: 24px;color: rgb(130, 0, 0);" class="self-center text-2xl font-semibold whitespace-nowrap dark:text-white">A' loneur !</span>
+      </a>
+  </div>
+  <div class="flex items-center gap-4">
+    <form action="/rechercher" method="post">
+      <input type="text" id="recherche" name="recherche" style="margin-right: 10px; width: 580px; background-color: #F3F4F6; border: 1px solid #D1D5DB; color: #111827; border-radius: 0.375rem; padding: 0.5rem 1rem; outline: none; transition: border-color 0.3s ease-in-out, box-shadow 0.3s ease-in-out;" placeholder="Rechercher un plat" required="">
+              <span style="position: absolute; right: 380px; top: 50%; transform: translateY(-50%);">
+                  <svg aria-hidden="true" class="w-5 h-5 text-gray-500 dark:text-gray-400" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
+                      <path fill-rule="evenodd" d="M8 4a4 4 0 100 8 4 4 0 000-8zM2 8a6 6 0 1110.89 3.476l4.817 4.817a1 1 0 01-1.414 1.414l-4.816-4.816A6 6 0 012 8z" clip-rule="evenodd" />
+                  </svg>
+              </span>
+      <button type="submit" style="margin-right: 30px ;background-color: brown; color: white; outline: none; font-weight: bold; border-radius: 0.375rem; font-size: 0.875rem; line-height: 1.25rem; padding: 0.5rem 1rem; text-align: center; cursor: pointer; transition: background-color 0.3s ease-in-out; height: 41px;" onmouseover="this.style.backgroundColor='darkred'" onmouseout="this.style.backgroundColor='brown'" onfocus="this.style.backgroundColor='darkbrown'" onblur="this.style.backgroundColor='brown'">
+          Rechercher
+      </button>
+    </form>
+      <button onclick="window.location.href='login'" class="flex items-center justify-center gap-2" style="background-color: darkgray; color: black; outline: none; font-weight: bold; border-radius: 0.375rem; font-size: 0.875rem; line-height: 1.25rem; padding: 0.5rem 1rem; text-align: center; cursor: pointer; height: 41px; transition: background-color 0.3s ease-in-out;" onmouseover="this.style.color='black',this.style.backgroundColor='grey'" onmouseout="this.style.color='black',this.style.backgroundColor='darkgrey'" onfocus="this.style.color='black',this.style.backgroundColor='grey'" onblur="this.style.color='black',this.style.backgroundColor='darkgrey'">
+          <img width="25" src="https://cdn-icons-png.flaticon.com/512/1077/1077114.png">
+          <span>{{nom}}</span>
+      </button>
+
+<!-- Button to toggle the mini form -->
+<button style="margin-left: 5px; background-color: transparent; border: none; outline: none; cursor: pointer;" id="toggleFormButton" class="text-black rounded-lg text-sm px-5 py-2.5 text-center inline-flex items-center dark:bg-blue-600 dark:focus:ring-blue-800" type="button" onmouseover="this.style.backgroundColor='#D1D5DB';" onmouseout="this.style.backgroundColor='transparent';" onclick="toggleMiniForm()">
+  <span class="sr-only">Open mini form</span>
+  <svg class="w-5 h-5" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 17 14">
+      <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M1 1h15M1 7h15M1 13h15"/>
+  </svg>
+</button>
+
+  </div>
+</nav>
+<div id="miniFormContainer" style="z-index:1100 ;margin-top: 100px; margin-left: 1000px;position: fixed; border-radius: 10px;" class="hidden top-0 right-0 h-full bg-gray-50 dark:bg-gray-800 z-50">
+  <!-- Mini form -->
+  <div id="miniForm" class="bg-white divide-y divide-gray-100 rounded-lg shadow w-64 dark:bg-gray-700 flex flex-col items-center justify-center h-full" style="right: 0;">
+
+      <form class="p-4">
+          <!-- Buttons -->
+          <div class="flex justify-between mb-4" style=" justify-content: center; align-items: center;" >
+          <a href="account" class="flex items-center justify-center gap-2" style="width:  170px ;margin-left: 10px; background-color: brown; color: white; outline: none; font-weight: bold; border-radius: 0.375rem; font-size: 0.875rem; line-height: 1.25rem; padding: 0.5rem 1rem; text-align: center; cursor: pointer; transition: background-color 0.3s ease-in-out; height: 41px;" onmouseover="this.style.backgroundColor='darkred'" onmouseout="this.style.backgroundColor='brown'" onfocus="this.style.backgroundColor='darkbrown'" onblur="this.style.backgroundColor='brown'">
+            <img width="25" src="https://static.vecteezy.com/system/resources/previews/014/396/452/non_2x/comic-style-user-icon-with-transparent-background-file-png.png" alt="">
+                <span> Créer un compte</span> 
+          </a>
+          </div>
+          <!-- Menu links -->
+          <ul class="py-2 text-sm text-gray-700 dark:text-gray-200" aria-labelledby="dropdownHoverButton">
+            <li class="flex items-center" style="margin-left: 40px;">
+                <div class="mr-2">
+                    <img width="20" src="https://cdn-icons-png.flaticon.com/512/0/619.png" alt="">
+                </div>
+                <a href="tracking" class="block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white">Suivi</a>
+            </li>
+            <li class="flex items-center" style="margin-left: 40px;">
+                <div class="mr-2">
+                    <img width="20" src="https://cdn-icons-png.flaticon.com/512/126/126083.png" alt="">
+                </div>
+                <a href="panier" class="block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white">Mon panier</a>
+            </li>
+            <li class="flex items-center" style="margin-left: 40px;">
+                <div class="mr-2">
+                    <img width="20" src="https://cdn-icons-png.flaticon.com/256/1077/1077063.png" alt="">
+                </div>
+                <a href="compte" class="block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white">Mon compte</a>
+            </li>
+            <li class="flex items-center" style="margin-left: 40px;">
+                <div class="mr-2">
+                    <img width="20" src="https://icones.pro/wp-content/uploads/2021/05/symbole-connexion-rouge.png" alt="">
+                </div>
+                <a href="logout" style="color:brown" class="block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white ">Déconnexion</a>
+            </li>
+          </ul>
+      </form>
+  </div>
+</div>
+

@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>A' loneur ! - Suivi de la commande</title>
+    <link rel="stylesheet" href="{{url_for('static',filename='css/output.css')}}">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/flowbite/2.3.0/flowbite.min.js"></script>
+</head>
+
+<body>
+  {% include 'shared/nav_bar.html' %}
+  <div style="position: fixed; margin-top: 102px; left: 0; right: 0; background-color: #fff; border: 1px solid #ccc; padding: 10px; text-align: center; z-index: 999;">
+    <span style="float: right; cursor: pointer;" onclick="this.parentElement.style.display='none';">&times;</span>
+    <p>Vous n'avez pas de commande en cours.</p>
+</div>
+  <section>
+    <div style="display: grid; max-width: 100%; grid-template-columns: repeat(12, 1fr); gap: 8px; padding: 0 16px; margin: 0 auto;">
+        <div style="grid-column: span 12; place-self: center;">
+            <div style="position: relative; border-radius: 8px; overflow: hidden;">
+                <img src="https://blackrocksenegal.org/wp-content/uploads/2023/02/Screen-Shot-2023-02-23-at-9.16.05-AM.png"
+                    alt="dash" style="width: 100vw; height: auto;">
+            </div>
+            </div>
+    </div>
+    {% include 'shared/footer.html' %}
+  </section>
+</body>

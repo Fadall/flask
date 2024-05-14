@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Profil Utilisateur</title>
+</head>
+<body>
+    <h1>Profil Utilisateur</h1>
+    {% for user in users %}
+    <!-- Afficher l'image de profil de l'utilisateur -->
+    <img src="{{ user.user_img }}" alt="Image de profil">
+
+    <!-- Autres informations sur l'utilisateur -->
+    <p>Nom d'utilisateur: {{ user.prenom }}</p>
+    <p>Prénom: {{ user.nom }}</p>
+    <!-- Ajoutez d'autres informations sur l'utilisateur ici -->
+    {% endfor %}
+
+</body>
+</html>

@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>A' loneur ! - Connexion</title>
+    <link rel="stylesheet" href="{{url_for('static',filename='css/output.css')}}">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/flowbite/2.3.0/flowbite.min.js"></script>
+</head>
+
+<body>
+    {% include 'shared/nav_bar.html' %}
+<div class=" flex flex-col items-center gap-2 max-w-sm p-4 bg-white border border-gray-200 rounded-lg shadow sm:p-6 md:p-8 dark:bg-gray-800 dark:border-gray-700">
+    <form class="space-y-6 mx-auto border-gray-300 p-4 rounded-lg" action="#" method="post">
+        <h5 style="margin-bottom: 20px; margin-top: 100px;" class="flex flex-col items-center gap-2 text-xl font-medium text-gray-900 dark:text-white">Se Connecter</h5>
+        <div>
+            <div>
+                <label for="telephone" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Téléphone</label>
+                <div class="flex gap-2">
+                    <select name="pays" id="pays" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 p-2.5 dark:bg-gray-600 dark:border-gray-500 dark:placeholder-gray-400 dark:text-white">
+                        <option value="+212">+212 (Maroc)</option>
+                        <option value="+213">+213 (Algérie)</option>
+                        <option value="+221" selected>+221 (Sénégal)</option>
+                        <option value="+223">+223 (Mali)</option>
+                        <option value="+225">+225 (Côte d'Ivoire)</option>
+                        <option value="+241">+241 (Gabon)</option>
+                        <option value="+242">+242 (Congo)</option>
+                        <option value="+243">+243 (RDC)</option>
+                    </select>
+                    <input type="number" name="telephone" id="telephone" style="margin-left: 10px;width: 312px;" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 p-2.5 dark:bg-gray-600 dark:border-gray-500 dark:placeholder-gray-400 dark:text-white" placeholder="" required />
+                </div>
+            </div>
+            {% with messages = get_flashed_messages(category_filter=['telephone']) %}
+                {% if messages %}
+                    <ul class="flash-messages" style="color: brown;">
+                        {% for message in messages %}
+                            <li>{{ message }}</li>
+                        {% endfor %}
+                    </ul>
+                {% endif %}
+            {% endwith %}
+
+        </div>
+        <div>
+            <label for="password" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Mot de passe</label>
+            <input type="password" name="password" id="password" placeholder="" style="width: 500px;margin-bottom: 20px;" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-600 dark:border-gray-500 dark:placeholder-gray-400 dark:text-white" required />
+            
+            {% with messages = get_flashed_messages(category_filter=['password']) %}
+                {% if messages %}
+                    <ul class="flash-messages" style="color: brown;">
+                        {% for message in messages %}
+                            <li>{{ message }}</li>
+                        {% endfor %}
+                    </ul>
+                {% endif %}
+            {% endwith %}
+        </div>
+        <div class="flex items-start">
+            <div class="flex items-start">
+                <div class="flex items-center h-5">
+                    <input id="remember" type="checkbox" value="" class="w-4 h-4 border border-gray-300 rounded bg-gray-50 focus:ring-3 focus:ring-blue-300 dark:bg-gray-700 dark:border-gray-600 dark:focus:ring-blue-600 dark:ring-offset-gray-800 dark:focus:ring-offset-gray-800"/>
+                </div>
+                <label for="remember" class="ms-2 text-sm font-medium text-gray-900 dark:text-gray-300">Se souvenir de moi</label>
+            </div>
+        </div>
+        <button type="submit"  style="background-color:brown; width: 500px;"  class=" text-white flex flex-col items-center gap-2  rounded-lg text-sm px-5 py-2.5 text-center ">Connexion</button>
+        <div class="text-sm font-medium text-gray-500 dark:text-gray-300">
+            <a href="account" class="flex flex-col items-center gap-2 text-blue-700 hover:underline dark:text-blue-500">Pas encore de compte ? S'inscrire</a>
+        </div>
+    </form>
+</div>
+{% include 'shared/footer.html' %}
+</body>

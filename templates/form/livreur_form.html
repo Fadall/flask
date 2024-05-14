@@ -1,0 +1,23 @@
+<form class="space-y-6 mx-auto border-gray-300 p-4 rounded-lg" id="livreurForm" action="add_livreur" method="POST" style="display: none; position: fixed; top: 50%; left: 50%; transform: translate(-50%, -50%); background-image: url('https://us.images.westend61.de/0001598059pw/male-delivery-person-holding-pizza-box-while-standing-at-doorway-ABIF01453.jpg'); background-size: cover; background-position: center; padding: 20px; border-radius: 10px; width: 800px; height: auto; margin-top: 50px; overflow: hidden;">
+    <button onclick="closeForm()" style="position: absolute; top: 10px; right: 10px; background: transparent; border: none; font-size: 20px; cursor: pointer;">X</button>
+    <div style="display: flex; flex-direction: column; align-items: center;">
+        <h1 style="margin-bottom: 20px; font-weight: bold;" class="text-xl font-medium text-gray-900 dark:text-white">Informations supplémentaires</h1>
+        <div style="display: flex; flex-direction: column;">
+            <div style="margin-bottom: 20px;">
+                <label for="prenom" style="font-weight: bold;" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Prénom</label>
+                <input type="text" name="prenom" id="prenom" placeholder="" style="width: 300px;border-radius: 0.375rem; background-color: transparent;" class="input-style" required onclick="this.style.backgroundColor='white'" />
+            </div>
+            <div style="margin-bottom: 20px;">
+                <label for="nom" style="font-weight: bold;" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Nom</label>
+                <input type="text" name="nom" id="nom" placeholder="" style="width: 300px;border-radius: 0.375rem; background-color: transparent;" class="input-style" required onclick="this.style.backgroundColor='white'"/>
+            </div>
+            <div style="margin-bottom: 20px;">
+                <label for="telephone" style="font-weight: bold;" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Téléphone</label>
+                <input type="number" name="telephone" id="telephone" style="width: 300px;border-radius: 0.375rem; background-color: transparent;" class="input-style" placeholder="+221" required onclick="this.style.backgroundColor='white'"/>
+            </div>
+        </div>
+        <button type="submit" style="margin-right: 5px ;background-color: brown; color: white; outline: none; font-weight: bold; border-radius: 0.375rem; font-size: 0.875rem; line-height: 1.25rem; padding: 0.5rem 1rem; text-align: center; cursor: pointer; transition: background-color 0.3s ease-in-out;  width: 300px; height: 45px;" onmouseover="this.style.backgroundColor='darkred'" onmouseout="this.style.backgroundColor='brown'" onfocus="this.style.backgroundColor='darkbrown'" onblur="this.style.backgroundColor='brown'">
+            Rejoignez l'équipe !
+        </button>
+</div>
+</form>
